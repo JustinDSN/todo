@@ -41,7 +41,7 @@
 }
 
 -(void) addItem {
-    [self.todos addObject:@"New Item"];
+    [self.todos addObject:@""];
     [self.tableView reloadData];
 }
 
@@ -93,6 +93,7 @@
     // Configure the cell...
     cell.textField.text = [self.todos objectAtIndex:[indexPath row]];
     cell.textField.delegate = self;
+    [cell.textField becomeFirstResponder];
     
     return cell;
 }
@@ -136,10 +137,5 @@
     int index = [idxPath indexAtPosition:[idxPath length] - 1];
     [self.todos setObject:textField.text atIndexedSubscript:index];
     NSLog(@"After editing: %@", self.todos);
-}
-
-- (void) textFieldDidBeginEditing:(UITextField *)textField
-{
-    textField.selectedTextRange = [textField textRangeFromPosition:[textField beginningOfDocument] toPosition:[textField endOfDocument]];
 }
 @end
