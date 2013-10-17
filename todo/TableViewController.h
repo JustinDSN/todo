@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomCellDelegate.h"
 
-@interface TableViewController : UITableViewController <UITextFieldDelegate>
+
+@interface TableViewController : UITableViewController <CustomCellDelegate>
+
+- (IBAction)onTap:(id)sender;
 
 @end

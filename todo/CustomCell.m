@@ -26,4 +26,9 @@
     // Configure the view for the selected state
 }
 
+- (void) textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.delegate editTodoItemAtCell:self withText:textField.text];
+}
+
 @end

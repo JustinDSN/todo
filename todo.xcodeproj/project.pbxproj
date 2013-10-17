@@ -58,6 +58,7 @@
 		D064CD4F180EF831007B7BA5 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		D064CD50180EF831007B7BA5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		D064CD51180EF831007B7BA5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		D064CD55180F711F007B7BA5 /* CustomCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCellDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +121,7 @@
 				D064CD4D180EF831007B7BA5 /* CustomCell.h */,
 				D064CD4E180EF831007B7BA5 /* CustomCell.m */,
 				D064CD4F180EF831007B7BA5 /* CustomCell.xib */,
+				D064CD55180F711F007B7BA5 /* CustomCellDelegate.h */,
 				D064CD50180EF831007B7BA5 /* TableViewController.h */,
 				D064CD51180EF831007B7BA5 /* TableViewController.m */,
 				D064CD27180EF79C007B7BA5 /* AppDelegate.h */,

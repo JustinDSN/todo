@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomCellDelegate.h"
 
-@interface CustomCell : UITableViewCell
+@interface CustomCell : UITableViewCell <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (weak, nonatomic) id<CustomCellDelegate> delegate;
 
 @end

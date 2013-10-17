@@ -89,9 +89,16 @@
     [todos insertObject:item atIndex: [toIndexPath row]];
 }
 
-- (void) textFieldDidEndEditing:(UITextField *)textField
+- (void)editTodoItemAtCell:(UITableViewCell *)tableCell withText:(NSString*)text
 {
-    
+    NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
+    int index = [idxPath indexAtPosition:[idxPath length] - 1];
+    [todos setObject:text atIndexedSubscript:index];
+}
+
+- (IBAction)onTap:(id)sender
+{
+    [self.tableView endEditing:YES];
 }
 
 @end

@@ -26,6 +26,11 @@
                     <navigationItem key="navigationItem" title="To Do" id="C1O-3o-ZgO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1b-3J-ff7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="OCF-EW-9OJ">
+                    <connections>
+                        <action selector="onTap:" destination="T0T-Ab-GPB" id="K1s-QC-DzJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="543" y="62"/>
         </scene>

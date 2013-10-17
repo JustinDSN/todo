@@ -10,4 +10,6 @@
 
 @protocol CustomCellDelegate <NSObject>
 
+- (void)editTodoItemAtCell:(UITableViewCell *)tableCell withText:(NSString*)text;
+
 @end
