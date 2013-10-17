@@ -9,12 +9,13 @@
 #import "TableViewController.h"
 #import "CustomCell.h"
 
-@interface TableViewController () {
-    NSMutableArray *todos;
-}
+@interface TableViewController ()
+    @property (nonatomic, strong) NSMutableArray *todos;
 @end
 
 @implementation TableViewController
+
+@synthesize todos;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,11 +37,11 @@
 }
 
 -(void) loadTodoItems {
-    todos = [[NSMutableArray alloc] init];
+    self.todos = [[NSMutableArray alloc] init];
 }
 
 -(void) addItem {
-    [todos addObject:@"New Item"];
+    [self.todos addObject:@"New Item"];
     [self.tableView reloadData];
 }
 
@@ -81,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return todos.count;
+    return self.todos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,7 +91,7 @@
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textField.text = [todos objectAtIndex:[indexPath row]];
+    cell.textField.text = [self.todos objectAtIndex:[indexPath row]];
     cell.delegate = self;
     
     return cell;
@@ -100,28 +101,28 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"Deleting item at position %i", [indexPath row]);
-        [todos removeObjectAtIndex:[indexPath row]];
+        [self.todos removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        NSLog(@"todos.count %i", todos.count);
+        NSLog(@"todos.count %i", self.todos.count);
     }
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSLog(@"Before moving: %@", todos);
-    id item = [todos objectAtIndex: [fromIndexPath row]];
-    [todos removeObjectAtIndex: [fromIndexPath row]];
-    [todos insertObject:item atIndex: [toIndexPath row]];
-    NSLog(@"After moving: %@", todos);
+    NSLog(@"Before moving: %@", self.todos);
+    id item = [self.todos objectAtIndex: [fromIndexPath row]];
+    [self.todos removeObjectAtIndex: [fromIndexPath row]];
+    [self.todos insertObject:item atIndex: [toIndexPath row]];
+    NSLog(@"After moving: %@", self.todos);
 }
 
 - (void)editTodoItemAtCell:(UITableViewCell *)tableCell withText:(NSString*)text
 {
     NSLog(@"Editing cell %i withText %@", [[self.tableView indexPathForCell:tableCell ] row], text);
-    NSLog(@"Before editing: %@", todos);
+    NSLog(@"Before editing: %@", self.todos);
     NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
     int index = [idxPath indexAtPosition:[idxPath length] - 1];
-    [todos setObject:text atIndexedSubscript:index];
-    NSLog(@"After editing: %@", todos);
+    [self.todos setObject:text atIndexedSubscript:index];
+    NSLog(@"After editing: %@", self.todos);
 }
 @end
