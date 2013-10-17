@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomCellDelegate.h"
 
-
-@interface TableViewController : UITableViewController <CustomCellDelegate>
+@interface TableViewController : UITableViewController <UITextFieldDelegate>
 
 - (IBAction)onTap:(id)sender;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *gestureRecognizer;

@@ -92,7 +92,7 @@
     
     // Configure the cell...
     cell.textField.text = [self.todos objectAtIndex:[indexPath row]];
-    cell.delegate = self;
+    cell.textField.delegate = self;
     
     return cell;
 }
@@ -124,5 +124,22 @@
     int index = [idxPath indexAtPosition:[idxPath length] - 1];
     [self.todos setObject:text atIndexedSubscript:index];
     NSLog(@"After editing: %@", self.todos);
+}
+
+#pragma mark - UITextFieldDelegate methods
+- (void) textFieldDidEndEditing:(UITextField *)textField
+{
+    UITableViewCell * tableCell = (UITableViewCell *) textField.superview;
+    NSLog(@"Editing cell %i withText %@", [[self.tableView indexPathForCell:tableCell ] row], textField.text);
+    NSLog(@"Before editing: %@", self.todos);
+    NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
+    int index = [idxPath indexAtPosition:[idxPath length] - 1];
+    [self.todos setObject:textField.text atIndexedSubscript:index];
+    NSLog(@"After editing: %@", self.todos);
+}
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.selectedTextRange = [textField textRangeFromPosition:[textField beginningOfDocument] toPosition:[textField endOfDocument]];
 }
 @end
