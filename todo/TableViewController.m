@@ -69,7 +69,7 @@
     
     // Configure the cell...
     cell.textField.text = [todos objectAtIndex:[indexPath row]];
-    cell.textField.delegate = self;
+    cell.delegate = self;
     
     return cell;
 }
@@ -77,16 +77,20 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"Deleting item at position %i", [indexPath row]);
         [todos removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSLog(@"todos.count %i", todos.count);
     }
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    NSLog(@"Before moving: %@", todos);
     id item = [todos objectAtIndex: [fromIndexPath row]];
     [todos removeObjectAtIndex: [fromIndexPath row]];
     [todos insertObject:item atIndex: [toIndexPath row]];
+    NSLog(@"After moving: %@", todos);
 }
 
 - (void)editTodoItemAtCell:(UITableViewCell *)tableCell withText:(NSString*)text
@@ -98,7 +102,7 @@
 
 - (IBAction)onTap:(id)sender
 {
-    [self.tableView endEditing:YES];
+    NSLog(@"onTap called");
+    [self.view endEditing:YES];
 }
-
 @end
