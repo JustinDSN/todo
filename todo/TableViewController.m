@@ -73,6 +73,23 @@
     
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    NSLog(@"Will begin dragging");
+    [self.view endEditing:YES];
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)textField
+{
+    UITableViewCell * tableCell = (UITableViewCell *) textField.superview;
+    NSLog(@"Editing cell %i withText %@", [[self.tableView indexPathForCell:tableCell ] row], textField.text);
+    NSLog(@"Before editing: %@", self.todos);
+    NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
+    int index = [idxPath indexAtPosition:[idxPath length] - 1];
+    [self.todos setObject:textField.text atIndexedSubscript:index];
+    NSLog(@"After editing: %@", self.todos);
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -124,18 +141,6 @@
     NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
     int index = [idxPath indexAtPosition:[idxPath length] - 1];
     [self.todos setObject:text atIndexedSubscript:index];
-    NSLog(@"After editing: %@", self.todos);
-}
-
-#pragma mark - UITextFieldDelegate methods
-- (void) textFieldDidEndEditing:(UITextField *)textField
-{
-    UITableViewCell * tableCell = (UITableViewCell *) textField.superview;
-    NSLog(@"Editing cell %i withText %@", [[self.tableView indexPathForCell:tableCell ] row], textField.text);
-    NSLog(@"Before editing: %@", self.todos);
-    NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
-    int index = [idxPath indexAtPosition:[idxPath length] - 1];
-    [self.todos setObject:textField.text atIndexedSubscript:index];
     NSLog(@"After editing: %@", self.todos);
 }
 @end

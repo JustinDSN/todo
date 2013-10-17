@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewController : UITableViewController <UITextFieldDelegate>
+@interface TableViewController : UITableViewController <UITableViewDelegate, UITextFieldDelegate>
 
 - (IBAction)onTap:(id)sender;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *gestureRecognizer;
