@@ -14,13 +14,15 @@
 		D064CD25180EF79C007B7BA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D064CD24180EF79C007B7BA5 /* main.m */; };
 		D064CD29180EF79C007B7BA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D064CD28180EF79C007B7BA5 /* AppDelegate.m */; };
 		D064CD2C180EF79C007B7BA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D064CD2A180EF79C007B7BA5 /* Main.storyboard */; };
-		D064CD2F180EF79C007B7BA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D064CD2E180EF79C007B7BA5 /* ViewController.m */; };
 		D064CD31180EF79C007B7BA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D064CD30180EF79C007B7BA5 /* Images.xcassets */; };
 		D064CD38180EF79C007B7BA5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D064CD37180EF79C007B7BA5 /* XCTest.framework */; };
 		D064CD39180EF79C007B7BA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D064CD18180EF79C007B7BA5 /* Foundation.framework */; };
 		D064CD3A180EF79C007B7BA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D064CD1C180EF79C007B7BA5 /* UIKit.framework */; };
 		D064CD42180EF79C007B7BA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D064CD40180EF79C007B7BA5 /* InfoPlist.strings */; };
 		D064CD44180EF79C007B7BA5 /* todoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D064CD43180EF79C007B7BA5 /* todoTests.m */; };
+		D064CD52180EF831007B7BA5 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D064CD4E180EF831007B7BA5 /* CustomCell.m */; };
+		D064CD53180EF831007B7BA5 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D064CD4F180EF831007B7BA5 /* CustomCell.xib */; };
+		D064CD54180EF831007B7BA5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D064CD51180EF831007B7BA5 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +47,17 @@
 		D064CD27180EF79C007B7BA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D064CD28180EF79C007B7BA5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D064CD2B180EF79C007B7BA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D064CD2D180EF79C007B7BA5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D064CD2E180EF79C007B7BA5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D064CD30180EF79C007B7BA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D064CD36180EF79C007B7BA5 /* todoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = todoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D064CD37180EF79C007B7BA5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D064CD3F180EF79C007B7BA5 /* todoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "todoTests-Info.plist"; sourceTree = "<group>"; };
 		D064CD41180EF79C007B7BA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D064CD43180EF79C007B7BA5 /* todoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = todoTests.m; sourceTree = "<group>"; };
+		D064CD4D180EF831007B7BA5 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		D064CD4E180EF831007B7BA5 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		D064CD4F180EF831007B7BA5 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		D064CD50180EF831007B7BA5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		D064CD51180EF831007B7BA5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +117,14 @@
 		D064CD1E180EF79C007B7BA5 /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				D064CD4D180EF831007B7BA5 /* CustomCell.h */,
+				D064CD4E180EF831007B7BA5 /* CustomCell.m */,
+				D064CD4F180EF831007B7BA5 /* CustomCell.xib */,
+				D064CD50180EF831007B7BA5 /* TableViewController.h */,
+				D064CD51180EF831007B7BA5 /* TableViewController.m */,
 				D064CD27180EF79C007B7BA5 /* AppDelegate.h */,
 				D064CD28180EF79C007B7BA5 /* AppDelegate.m */,
 				D064CD2A180EF79C007B7BA5 /* Main.storyboard */,
-				D064CD2D180EF79C007B7BA5 /* ViewController.h */,
-				D064CD2E180EF79C007B7BA5 /* ViewController.m */,
 				D064CD30180EF79C007B7BA5 /* Images.xcassets */,
 				D064CD1F180EF79C007B7BA5 /* Supporting Files */,
 			);
@@ -230,6 +238,7 @@
 			files = (
 				D064CD31180EF79C007B7BA5 /* Images.xcassets in Resources */,
 				D064CD23180EF79C007B7BA5 /* InfoPlist.strings in Resources */,
+				D064CD53180EF831007B7BA5 /* CustomCell.xib in Resources */,
 				D064CD2C180EF79C007B7BA5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,8 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D064CD2F180EF79C007B7BA5 /* ViewController.m in Sources */,
 				D064CD29180EF79C007B7BA5 /* AppDelegate.m in Sources */,
+				D064CD52180EF831007B7BA5 /* CustomCell.m in Sources */,
+				D064CD54180EF831007B7BA5 /* TableViewController.m in Sources */,
 				D064CD25180EF79C007B7BA5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
