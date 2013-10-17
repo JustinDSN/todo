@@ -37,7 +37,18 @@
 }
 
 -(void) loadTodoItems {
-    self.todos = [[NSMutableArray alloc] init];
+    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"todos"];
+    if (dataRepresentingSavedArray != nil) {
+        NSArray *oldSavedArray = [NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray];
+        if (oldSavedArray != nil)
+            self.todos = [[NSMutableArray alloc] initWithArray:oldSavedArray];
+        else
+            self.todos = [[NSMutableArray alloc] init];
+    }
+    else {
+        self.todos = [[NSMutableArray alloc] init];
+    }
 }
 
 -(void) addItem {
@@ -48,7 +59,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self saveToDoList];
 }
 
 #pragma mark - Events
@@ -81,12 +92,13 @@
 
 - (void) textFieldDidEndEditing:(UITextField *)textField
 {
-    UITableViewCell * tableCell = (UITableViewCell *) textField.superview;
-    NSLog(@"Editing cell %i withText %@", [[self.tableView indexPathForCell:tableCell ] row], textField.text);
+    //UITableViewCell * tableCell = (UITableViewCell *) textField.superview;
+    NSLog(@"Editing cell %i withText %@", textField.tag, textField.text);
     NSLog(@"Before editing: %@", self.todos);
-    NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
-    int index = [idxPath indexAtPosition:[idxPath length] - 1];
-    [self.todos setObject:textField.text atIndexedSubscript:index];
+    //NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
+    //int index = [idxPath indexAtPosition:[idxPath length] - 1];
+    [self.todos setObject:textField.text atIndexedSubscript:textField.tag];
+    [self saveToDoList];
     NSLog(@"After editing: %@", self.todos);
 }
 
@@ -109,6 +121,7 @@
     
     // Configure the cell...
     cell.textField.text = [self.todos objectAtIndex:[indexPath row]];
+    cell.textField.tag = [indexPath row];
     cell.textField.delegate = self;
     [cell.textField becomeFirstResponder];
     
@@ -121,6 +134,7 @@
         NSLog(@"Deleting item at position %i", [indexPath row]);
         [self.todos removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self saveToDoList];
         NSLog(@"todos.count %i", self.todos.count);
     }
 }
@@ -131,16 +145,11 @@
     id item = [self.todos objectAtIndex: [fromIndexPath row]];
     [self.todos removeObjectAtIndex: [fromIndexPath row]];
     [self.todos insertObject:item atIndex: [toIndexPath row]];
+    [self saveToDoList];
     NSLog(@"After moving: %@", self.todos);
 }
 
-- (void)editTodoItemAtCell:(UITableViewCell *)tableCell withText:(NSString*)text
-{
-    NSLog(@"Editing cell %i withText %@", [[self.tableView indexPathForCell:tableCell ] row], text);
-    NSLog(@"Before editing: %@", self.todos);
-    NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
-    int index = [idxPath indexAtPosition:[idxPath length] - 1];
-    [self.todos setObject:text atIndexedSubscript:index];
-    NSLog(@"After editing: %@", self.todos);
+-(void) saveToDoList {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.todos] forKey:@"todos"];
 }
 @end
