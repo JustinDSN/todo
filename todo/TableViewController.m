@@ -36,7 +36,7 @@
 }
 
 -(void) loadTodoItems {
-    todos = [NSMutableArray arrayWithObjects:@"Item 1", @"Item 2", @"Item 3", nil];
+    todos = [[NSMutableArray alloc] init];
 }
 
 -(void) addItem {
@@ -48,6 +48,28 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Events
+- (IBAction)onTap:(id)sender
+{
+    NSLog(@"onTap called");
+    [self.view endEditing:YES];
+}
+
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    [super setEditing:editing animated:animated];
+    
+    if(editing) {
+        self.gestureRecognizer.enabled = NO;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    else {
+        self.gestureRecognizer.enabled = YES;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
+    
 }
 
 #pragma mark - Table view data source
@@ -95,14 +117,11 @@
 
 - (void)editTodoItemAtCell:(UITableViewCell *)tableCell withText:(NSString*)text
 {
+    NSLog(@"Editing cell %i withText %@", [[self.tableView indexPathForCell:tableCell ] row], text);
+    NSLog(@"Before editing: %@", todos);
     NSIndexPath *idxPath = [self.tableView indexPathForCell:tableCell];
     int index = [idxPath indexAtPosition:[idxPath length] - 1];
     [todos setObject:text atIndexedSubscript:index];
-}
-
-- (IBAction)onTap:(id)sender
-{
-    NSLog(@"onTap called");
-    [self.view endEditing:YES];
+    NSLog(@"After editing: %@", todos);
 }
 @end

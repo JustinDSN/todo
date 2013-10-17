@@ -12,6 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nj4-2e-wlP" customClass="CustomCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -22,17 +23,23 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lQV-qt-LHq" appends="YES" id="FVL-UE-LRj"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To Do" id="C1O-3o-ZgO"/>
+                    <connections>
+                        <outlet property="gestureRecognizer" destination="lQV-qt-LHq" id="sOV-GR-Le8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1b-3J-ff7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="OCF-EW-9OJ">
+                <tapGestureRecognizer id="lQV-qt-LHq">
                     <connections>
-                        <action selector="onTap:" destination="T0T-Ab-GPB" id="FbG-UQ-DqC"/>
+                        <action selector="onTap:" destination="T0T-Ab-GPB" id="SFT-bt-cAo"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="543" y="62"/>
+            <point key="canvasLocation" x="455" y="62"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kIK-0H-HgA">

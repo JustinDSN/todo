@@ -19,6 +19,11 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    self.textField.delegate = self;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -29,6 +34,11 @@
 - (void) textFieldDidEndEditing:(UITextField *)textField
 {
     [self.delegate editTodoItemAtCell:self withText:textField.text];
+}
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.selectedTextRange = [textField textRangeFromPosition:[textField beginningOfDocument] toPosition:[textField endOfDocument]];
 }
 
 @end

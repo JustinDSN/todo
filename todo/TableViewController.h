@@ -13,5 +13,6 @@
 @interface TableViewController : UITableViewController <CustomCellDelegate>
 
 - (IBAction)onTap:(id)sender;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *gestureRecognizer;
 
 @end
