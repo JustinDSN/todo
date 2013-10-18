@@ -36,7 +36,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
 }
 
--(void) loadTodoItems {
+-(void)loadTodoItems {
     NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
     NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"todos"];
     if (dataRepresentingSavedArray != nil) {
@@ -51,7 +51,7 @@
     }
 }
 
--(void) addItem {
+- (void)addItem {
     [self.todos addObject:@""];
     [self.tableView reloadData];
 }
@@ -90,7 +90,7 @@
     [self.view endEditing:YES];
 }
 
-- (void) textFieldDidEndEditing:(UITextField *)textField
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
     //UITableViewCell * tableCell = (UITableViewCell *) textField.superview;
     NSLog(@"Editing cell %i withText %@", textField.tag, textField.text);
@@ -149,7 +149,7 @@
     NSLog(@"After moving: %@", self.todos);
 }
 
--(void) saveToDoList {
+-(void)saveToDoList {
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.todos] forKey:@"todos"];
 }
 @end

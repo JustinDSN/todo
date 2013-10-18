@@ -13,13 +13,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New item..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d4z-Db-xbq">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New item..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d4z-Db-xbq">
                         <rect key="frame" x="10" y="7" width="300" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="d4z-Db-xbq" secondAttribute="bottom" constant="6" id="EZ0-si-6jc"/>
+                    <constraint firstItem="d4z-Db-xbq" firstAttribute="centerX" secondItem="dYV-dN-ZHB" secondAttribute="centerX" id="Ghx-0w-PMs"/>
+                    <constraint firstItem="d4z-Db-xbq" firstAttribute="leading" secondItem="dYV-dN-ZHB" secondAttribute="leading" constant="10" id="aoA-hf-FbR"/>
+                    <constraint firstItem="d4z-Db-xbq" firstAttribute="top" secondItem="dYV-dN-ZHB" secondAttribute="top" constant="7" id="cev-YY-goH"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="textField" destination="d4z-Db-xbq" id="EcD-Vo-MTF"/>
