@@ -151,5 +151,6 @@
 
 -(void)saveToDoList {
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.todos] forKey:@"todos"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 @end
